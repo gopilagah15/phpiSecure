@@ -1,5 +1,6 @@
 <?php
   $showAlert = false;
+  $showError = false;
 if($_SERVER["REQUEST_METHOD"] == "POST"){
   include 'partials/_dbConnect.php';
   $username = $_POST["username"];
@@ -12,6 +13,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if($result){
       $showAlert = true;
     }
+  }else{
+    $showError = true;
   }
 }
 
@@ -33,8 +36,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     ?> 
     <?php
     if($showAlert){ 
-        echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Success</strong>Account Created successfully.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        </div>';};
+    ?>
+    <?php
+    if($showError){ 
+        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Error!</strong>Password do not match!.
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
