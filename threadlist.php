@@ -15,11 +15,23 @@
   <?php
     include 'partials/_header.php';
     include 'partials/_dbConnect.php'; ?>
+
+<?php
+$id = $_GET['catid'];
+$sql = "SELECT * FROM `categoriess` WHERE category_id =$id;
+";
+$result = mysqli_query($conn,$sql);
+while($row = mysqli_fetch_assoc($result)){
+$catname =  $row['category_name'];
+$catdesc =  $row['category_description'];
+}
+
+?> 
  
 <div class="container">
 <div class="jumbotron">
-  <h1 class="display-4">Welcome to Python Forum</h1>
-  <p class="lead">This Python simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+  <h1 class="display-4">Welcome to <?php echo  $catname ?></h1>
+  <p class="lead"><?php echo $catname ?></p>
   <hr class="my-4">
   <p>peer to pere python forum</p>
   <p class="lead">
