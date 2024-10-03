@@ -40,27 +40,24 @@
            $sql = "SELECT * FROM `categoriess`";
            $result = mysqli_query($conn,$sql);
            while($row = mysqli_fetch_assoc($result)){
-           $id =  $row['category_id'];
+        //    $id =  $row['category_id'];
            $name =  $row['category_name'];
            $desc =  $row['category_description'];
            echo'<div class="col-md-4">
            <div class="card" style="width: 18rem;">
-<img class="card-img-top" src="https://media.istockphoto.com/id/1323037471/photo/teenage-girl-with-bluetooth-headphones-studying-late-at-home.webp?a=1&b=1&s=612x612&w=0&k=20&c=L858KShtI2La__NZVves1uMbcou5GfZh0Jd4W61COhQ=" alt="Card image cap">
+<img class=
+"card-img-top" src="https://media.istockphoto.com/id/1323037471/photo/teenage-girl-with-bluetooth-headphones-studying-late-at-home.webp?a=1&b=1&s=612x612&w=0&k=20&c=L858KShtI2La__NZVves1uMbcou5GfZh0Jd4W61COhQ=" alt="Card image cap">
 <div class="card-body">
-<h5 class="card-title"><a href="/forum/threadlist.php?catid=' . $id . '">'.$name.'</a></h5>
+<h5 class="card-title"><a href="/forum/phpiSecure/threadlist.php">'.$name.'</a></h5>
 <p class="card-text">'.substr($desc,0,50).'....</p>
-<a href="/forum/threadlist.php?catid='.$id.'" class="btn btn-primary">View Threads</a>
+<a href="/forum/phpiSecure/threadlist.php" class="btn btn-primary">View Threads</a>
 
 </div>
 </div>
        </div>';
            }
            ?>
-    <?php
-    include 'partials/_footer.php'; 
-
-
-    ?>
+    <?php include 'partials/_footer.php';  ?>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
